@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ListaDeTarefas from './components/ListadeTarefas';
+import Formulario from './components/Formulario';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [tarefas, setTarefas] = useState([]);
+
+  const adicionarTarefa = (tarefa) => {
+    setTarefas([...tarefas, tarefa]);
+  };
+
+  const removerTarefa = (id) => {
+    setTarefas(tarefas.filter(tarefa => tarefa.id !== id));
+  };
+
+  const editarTarefa = (id, novoTexto) => {
+    setTarefas(tarefas.map(tarefa => (tarefa.id === id ? { ...tarefa, texto: novoTexto } : tarefa)));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Lista de Tarefas</h1>
+      <Formulario adicionarTarefa={adicionarTarefa} />
+      <ListaDeTarefas tarefas={tarefas} removerTarefa={removerTarefa} editarTarefa={editarTarefa} />
     </div>
   );
 }
