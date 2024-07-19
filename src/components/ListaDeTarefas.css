@@ -4,4 +4,53 @@
     padding: 0;
     margin: 0;
   }
-  
+  /* ListaDeTarefas.css */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease;
+}
+
+.tarefa:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tarefa .conteudo {
+  flex: 1;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.tarefa .acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  padding: 8px 12px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #4cae4c;
+}
